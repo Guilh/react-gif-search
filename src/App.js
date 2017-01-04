@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import 'whatwg-fetch';
 import axios from 'axios';
 import './App.css';
 import SearchForm from './Components/SearchForm';
@@ -28,6 +29,18 @@ class App extends Component {
       console.log('Error fetching and parsing data', error);
     });
   };
+  
+  // THIS EXAMPLE USES fetch()  
+  // performSearch = (query) => {
+  //   fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //       this.setState({data: responseData.data});  
+  //     }) 
+  //     .catch((error) => { // offline, for example
+  //       console.log('Error fetching and parsing data', error);
+  //     });
+  // };
     
   render() {    
     return (
