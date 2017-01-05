@@ -12,7 +12,6 @@ export default class App extends Component {
     this.state = {
       gifs: []
     };
-    console.log(this.props);
   }
     
   performSearch = (query) => {
