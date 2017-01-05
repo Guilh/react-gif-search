@@ -12,16 +12,16 @@ export default class App extends Component {
     this.state = {
       gifs: []
     };
+    console.log(this.props);
   }
     
   performSearch = (query) => {
-    let _this = this;
     axios
       .get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => { 
         console.log(response.data.data);  // show this first 
         console.log('I am searching'); // maybe demo
-        _this.setState({
+        this.setState({
           gifs: response.data.data
         });
       }) 
@@ -41,7 +41,7 @@ export default class App extends Component {
   //       console.log('Error fetching and parsing data', error);
   //     });
   // };
-    
+  //   
   render() {    
     return (
       <div>
