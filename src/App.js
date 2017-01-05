@@ -5,7 +5,7 @@ import './App.css';
 import SearchForm from './Components/SearchForm';
 import GifList from './Components/GifList';
 
-class App extends Component {
+export default class App extends Component {
   
   constructor() {
     super();
@@ -58,5 +58,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
