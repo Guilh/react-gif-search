@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      gifs: []
     };
   }
     
@@ -20,14 +20,14 @@ class App extends Component {
       .get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => { 
         console.log(response.data.data);  // show this first 
-        console.log(query); // maybe demo
+        console.log('I am searching'); // maybe demo
         _this.setState({
-          data: response.data.data
+          gifs: response.data.data
         });
       }) 
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-    });
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
   };
   
   // THIS EXAMPLE USES fetch()  
@@ -35,7 +35,7 @@ class App extends Component {
   //   fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
   //     .then((response) => response.json())
   //     .then((responseData) => {
-  //       this.setState({data: responseData.data});  
+  //       this.setState({gifs: responseData.data});  
   //     }) 
   //     .catch((error) => { // offline, for example
   //       console.log('Error fetching and parsing data', error);
@@ -52,7 +52,7 @@ class App extends Component {
           </div>   
         </div>    
         <div className="main-content clearfix">
-          <GifList data={this.state.data} />
+          <GifList data={this.state.gifs} />
         </div>
       </div>
     );

@@ -12,7 +12,8 @@ class SearchForm extends Component {
   
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.state.searchText, this.state.data);
+    let query = this.state.searchText; // could also be a ref??
+    this.props.onSearch(query);
     e.currentTarget.reset();
   };
   
@@ -23,7 +24,7 @@ class SearchForm extends Component {
         <input type="search" 
                onChange={this.onSearchChange}
                name="search" 
-               placeholder="Search a Gif..." />
+               placeholder="Search..." />
         <button type="submit" id="submit" className="search-button"><i className="material-icons icn-search">search</i></button>
       </form>      
     );

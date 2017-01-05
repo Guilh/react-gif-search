@@ -8,7 +8,7 @@
 
 body {
   font: 1em/1.5 'Roboto', sans-serif;
-  color: #222;
+  color: #4c4c4c;
   background: #f6f7f7;
   padding-top: 145px;
   padding-bottom: 3em;
@@ -38,10 +38,6 @@ input {
   transition: border-color .4s;
 }
 
-input ~ input {
-  margin-left: 5px;
-}
-
 input:focus {
   border-color: #c1c1c1;
 }
@@ -69,17 +65,9 @@ button {
   margin: 0;
 }
 
-.search-form input:last-of-type {
-  margin-right: -40px;
-}
-.search-form input:nth-of-type(1) {
-  width: 65%;
-}
-.search-form input:nth-of-type(2) {
-  width: 35%;
-}
 .search-form input:only-of-type {
   width: 100%;
+  margin-right: -40px;
   padding-right: 35px;
 }
 
@@ -92,17 +80,17 @@ button {
   font-weight: 700;
 }
 
-.icon-help {
+.icon-gif {
   font-size: 6em;
-  margin-bottom: 12px;
-  color: #dfdfdf;
+  margin-bottom: 0;
+  color: #7bcbc4;
   display: block;
 }
 
 /* MOVIE LIST COMPONENTS -------- */
 
-.no-movies  {
-  color: #b0b0b0;
+.no-gifs  {
+  color: #7bcbc4;
   height: 140px;
   margin-top: 65px;
   text-align: center;
@@ -122,19 +110,6 @@ button {
 
 .gif-wrap img {
   min-width: 100%;
-}
-
-.poster-placeholder {
-  color: #dadada;
-  font-size: 5em;
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
 }
 
 /* ================================= 
@@ -200,7 +175,7 @@ button {
   .gif-wrap img {
     height: 235px;
   }
-  .gif-list .no-movies {
+  .gif-list .no-gifs {
     float: none;
     width: 100%;
   }
@@ -209,9 +184,6 @@ button {
     padding: 0;
     overflow: hidden;
   }
- .movie-title {
-   padding-right: 1.25em;
- }
 }
 
 @media (min-width: 769px) {
