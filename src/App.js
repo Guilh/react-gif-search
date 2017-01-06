@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import './App.css';
 // import 'whatwg-fetch';
 import axios from 'axios';
-import './App.css';
 import SearchForm from './Components/SearchForm';
-import GifList from './Components/GifList';
+import GifContainer from './Components/GifContainer';
 
 export default class App extends Component {
   
@@ -18,8 +18,6 @@ export default class App extends Component {
     axios
       .get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => { 
-        console.log(response.data.data);  // show this first 
-        console.log('I am searching'); // maybe demo
         this.setState({
           gifs: response.data.data
         });
@@ -27,7 +25,7 @@ export default class App extends Component {
       .catch(error => {
         console.log('Error fetching and parsing data', error);
       });
-  };
+  }
   
   // THIS EXAMPLE USES fetch()  
   // performSearch = (query) => {
@@ -40,7 +38,7 @@ export default class App extends Component {
   //       console.log('Error fetching and parsing data', error);
   //     });
   // };
-  //   
+  
   render() {    
     return (
       <div>
@@ -51,7 +49,7 @@ export default class App extends Component {
           </div>   
         </div>    
         <div className="main-content clearfix">
-          <GifList data={this.state.gifs} />
+          <GifContainer data={this.state.gifs} />
         </div>
       </div>
     );
