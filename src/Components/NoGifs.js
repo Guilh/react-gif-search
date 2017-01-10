@@ -2,8 +2,8 @@ import React from 'react';
 
 const NoGifs = props => (
   <li className='no-gifs'>
-    <i className="material-icons icon-gif">tag_faces</i>
-    <h3>Search the Giphy API for fun reaction GIFs!</h3>
+    <i className="material-icons icon-gif">sentiment_very_dissatisfied</i>
+    <h3>Sorry, no GIFs match your search.</h3>
   </li>
 );
 

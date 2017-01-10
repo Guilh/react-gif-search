@@ -87,12 +87,10 @@ button {
   display: block;
 }
 
-/* MOVIE LIST COMPONENTS -------- */
-
 .no-gifs  {
   color: #7bcbc4;
   height: 140px;
-  margin-top: 65px;
+  padding-top: 62px;
   text-align: center;
   font-size: 1.25em;
 }
@@ -161,7 +159,8 @@ button {
 @media (min-width: 0) and (max-width: 549px) {
   .gif-list li {
     text-align: center;
-    margin: 1em 0 0;
+    margin: 20px 0 0;
+    font-size: 0;
   }
 }
 
@@ -170,7 +169,6 @@ button {
     float: left;
     width: 50%;
     margin: 0;
-    font-size: 0;
   }
   .gif-wrap img {
     height: 235px;
@@ -183,6 +181,7 @@ button {
     border: 1px solid white;
     padding: 0;
     overflow: hidden;
+    font-size: 0;
   }
 }
 

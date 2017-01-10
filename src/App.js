@@ -3,7 +3,7 @@ import './App.css';
 // import 'whatwg-fetch';
 import axios from 'axios';
 import SearchForm from './Components/SearchForm';
-import GifContainer from './Components/GifContainer';
+import GifList from './Components/GifList';
 
 export default class App extends Component {
   
@@ -12,9 +12,9 @@ export default class App extends Component {
     this.state = {
       gifs: []
     };
-  }
-    
-  performSearch = (query) => {
+  } 
+
+  performSearch = (query = 'cats') => {
     axios
       .get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => { 
@@ -27,29 +27,33 @@ export default class App extends Component {
       });
   }
   
+  componentDidMount() {
+    this.performSearch();
+  }  
+
   // THIS EXAMPLE USES fetch()  
-  // performSearch = (query) => {
-  //   fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
-  //     .then((response) => response.json())
-  //     .then((responseData) => {
+  // componentDidMount() {
+  //   fetch('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+  //     .then(response => response.json())
+  //     .then(responseData => {
   //       this.setState({gifs: responseData.data});  
   //     }) 
   //     .catch((error) => { // offline, for example
   //       console.log('Error fetching and parsing data', error);
   //     });
-  // };
+  // }
   
-  render() {    
+  render() { 
     return (
       <div>
         <div className="main-header">
           <div className="inner">
             <h1 className="main-title">GifSearch</h1>
-            <SearchForm onSearch={this.performSearch} />
+            <SearchForm onSearch={this.performSearch} />      
           </div>   
         </div>    
         <div className="main-content clearfix">
-          <GifContainer data={this.state.gifs} />
+          <GifList data={this.state.gifs} />
         </div>
       </div>
     );
