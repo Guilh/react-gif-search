@@ -11,7 +11,6 @@ export default class GifList extends Component {
     } else {
       gifs = <NoGifs />
     }
-    
     return(
       <ul className="gif-list">
         {gifs}

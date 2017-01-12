@@ -131,11 +131,7 @@ button {
   z-index: 1000;
 }
 
-/* ================================= 
-  Helper Classes
-==================================== */
-
-.clearfix::after {
+.main-content::after {
   content: " ";
   display: table;
   clear: both;
@@ -202,13 +198,7 @@ button {
   }
 }
 
-@media (min-width: 769px) and (max-width: 999px) { 
-  .gif-list li:nth-of-type(3n+1) {
-    clear: left;
-  }
-}
-
-@media (min-width: 1000px) {
+@media (min-width: 769px) { 
   .gif-list li:nth-of-type(3n+1) {
     clear: left;
   }

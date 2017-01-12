@@ -27,7 +27,7 @@ export default class App extends Component {
       });
   }
   
-  componentDidMount() {
+  componentWillMount() {
     this.performSearch();
   }  
 
@@ -52,7 +52,7 @@ export default class App extends Component {
             <SearchForm onSearch={this.performSearch} />      
           </div>   
         </div>    
-        <div className="main-content clearfix">
+        <div className="main-content">
           <GifList data={this.state.gifs} />
         </div>
       </div>
