@@ -10,7 +10,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      gifs: []
+      gifs: [],
+      loading: true
     };
   } 
 
@@ -19,6 +20,7 @@ export default class App extends Component {
       .get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => { 
         this.setState({
+          loading: false,
           gifs: response.data.data
         });
       }) 
@@ -27,7 +29,7 @@ export default class App extends Component {
       });
   }
   
-  componentWillMount() {
+  componentDidMount() {
     this.performSearch();
   }  
 
@@ -43,7 +45,7 @@ export default class App extends Component {
   //     });
   // }
   
-  render() { 
+  render() {      
     return (
       <div>
         <div className="main-header">
@@ -52,8 +54,12 @@ export default class App extends Component {
             <SearchForm onSearch={this.performSearch} />      
           </div>   
         </div>    
-        <div className="main-content">
-          <GifList data={this.state.gifs} />
+        <div className="main-content">    
+          { 
+            (this.state.loading)
+              ? <div>Loading...</div> 
+              : <GifList data={this.state.gifs} /> 
+          }
         </div>
       </div>
     );
